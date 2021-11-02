@@ -56,20 +56,13 @@ public class ReverseString {
         // **** open buffered reader ****
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         
-        // **** read input into list ****
-        List<String> lst = Arrays.stream(br.readLine().trim().split(","))
-                        .collect(Collectors.toList());
+        // **** read input into char[] s ****
+        char[] s = Arrays.stream(br.readLine().trim().split("\",\"|\""))
+                        .collect(Collectors.joining())
+                        .toCharArray();
 
         // **** close buffered reader ****
         br.close();
-
-        // **** concatenate strings ****
-        String str = "";
-        for (String s : lst)
-            str += s.substring(1, 2);
-
-        // **** convert string to char[] ****
-        char[] s = str.toCharArray();
 
         // ???? ????
         System.out.println("main <<< s: " + Arrays.toString(s));
